@@ -1,38 +1,32 @@
+//Given a number N.
+//Print the digits of N separated by a space.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-ll digit_p(int d, int k)
+
+//Print function
+void PrintNto1(int n)
 {
-    if(k==0)
-    {
-        cout << "0\n";
-    }
-    else if(d>0)
-    {
-        digit_p(d/10, k);
-        if(d==k)
-            cout << d%10 << endl;
-        else
-            cout << d%10 << " ";
-    }
- 
+    //Base case
+    if(n==0) return;
+
+    //Recursive call statement
+    PrintNto1(n/10);
+    cout << n%10 << " ";
 }
- 
-lets_start
+int main()
 {
+    //Take an input t for test case
     int t; cin >> t;
     while(t--)
     {
+        //Take an input n
         int n; cin >> n;
-        digit_p(n, n);
+        //Call the function
+        PrintNto1(n);
+        cout << endl;
     }
- 
-    okeyBye
+
+    return 0;
 }
+
