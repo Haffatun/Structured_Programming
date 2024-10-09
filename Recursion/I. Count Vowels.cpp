@@ -1,34 +1,32 @@
+//Given a string S.
+//Print number of vowels in the string.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-int cnt_vwl(string str, int x, int k)
+
+//Count function
+int cntVowel(string s, int n, int cnt)
 {
-    if(str[x]=='a' || str[x]=='e' || str[x]=='i' || str[x]=='o' || str[x]=='u' || str[x]=='A' || str[x]=='E' || str[x]=='I' || str[x]=='O' || str[x]=='U')
-    {
-        k++;
- 
-    }
-    if(x==0)
-    {
-        cout << k << endl;
-        return 0;
-    }
- 
-    cnt_vwl(str, x-1, k);
+    //Base case
+    if(n<0) return cnt;
+
+    //Check Vowel
+    if(s[n]=='a'||s[n]=='e'||s[n]=='i'||s[n]=='o'||s[n]=='u'||
+       s[n]=='A'||s[n]=='E'||s[n]=='I'||s[n]=='O'||s[n]=='U')
+        cnt++;
+
+    return cntVowel(s, n-1, cnt);
 }
- 
-lets_start
+int main()
 {
+    //Take a String
     string s;
     getline(cin, s);
-    int n=s.size();
-    cnt_vwl(s, n-1, 0);
-    okeyBye
+    //String size
+    int sz=s.size();
+    //print the function output
+    cout << cntVowel(s, sz, 0);
+
+    return 0;
 }
+
