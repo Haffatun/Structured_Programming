@@ -1,25 +1,24 @@
+//Given a number N. Print "I love Recursion" N times.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-void print(int x)
+
+//Print function
+void PrintRecursion(int n)
 {
-    if(x==0)
-        return;
-    print(x-1);
+    //Base case
+    if(n==0) return;
+    //Recursive call statement
+    PrintRecursion(n-1);
     cout << "I love Recursion\n";
 }
- 
-lets_start
+int main()
 {
-    int n;
-    cin >> n;
-    print(n);
-    okeyBye
+    //Take a input n
+    int n; cin >> n;
+    //Call the function
+    PrintRecursion(n);
+
+    return 0;
 }
+
