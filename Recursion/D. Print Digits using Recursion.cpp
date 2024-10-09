@@ -5,13 +5,13 @@
 using namespace std;
 
 //Print function
-void PrintNto1(int n)
+void PrintDigit(int n)
 {
     //Base case
     if(n==0) return;
 
     //Recursive call statement
-    PrintNto1(n/10);
+    PrintDigit(n/10);
     cout << n%10 << " ";
 }
 int main()
@@ -23,7 +23,7 @@ int main()
         //Take an input n
         int n; cin >> n;
         //Call the function
-        PrintNto1(n);
+        PrintDigit(n);
         cout << endl;
     }
 
