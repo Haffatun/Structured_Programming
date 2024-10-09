@@ -1,35 +1,32 @@
+//Given a number N.
+//Print the binary equivalent of N.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-int b_c(int n, int i)
+
+//Print function
+void PrintinBinary(int n)
 {
-    vi v;
-    if(n==0)
-       return 0;
-    else
-    {
-        int k=n%2;
-        v.push_back(k);
-        b_c(n/2, i+1);
-    }
-    for(int j=v.size()-1; j>=0; --j)
-        cout << v[j];
+    //Base case
+    if(n==0) return;
+
+    //Recursive call statement
+    PrintinBinary(n/2);
+    cout << n%2;
 }
-lets_start
+int main()
 {
+    //Take an input t for test case
     int t; cin >> t;
     while(t--)
     {
+        //Take an input n
         int n; cin >> n;
-        b_c(n, 0);
+        //Call the function
+        PrintinBinary(n);
         cout << endl;
     }
-    okeyBye
+
+    return 0;
 }
+
