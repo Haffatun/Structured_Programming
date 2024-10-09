@@ -1,33 +1,29 @@
+//Given a number N and an array A of N numbers.
+//Print the maximum value in this array.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-int max_n(int arr[], int s, int mx)
+
+//Find Maximum value from array
+int FindMax(int arr[], int n, int mx)
 {
-    if(arr[s] > mx)
-        mx=arr[s];
-    if(s==0)
-    {
-        cout << mx << endl;
-        return 0;
-    }
-    max_n(arr, s-1, mx);
+    //Base case
+    if(n<0) return mx;
+
+    mx=max(arr[n], mx);
+    return FindMax(arr, n-1, mx);
 }
- 
-lets_start
+int main()
 {
+    //Take an integer
     int n; cin >> n;
+    //Take an array
     int arr[n];
     for(int i=0; i<n; ++i)
         cin >> arr[i];
-    int mx=arr[n-1];
-    max_n(arr, n-1, mx);
- 
-    okeyBye
+    //Call the function and print the max value of the array
+    cout << FindMax(arr, n-2, arr[n-1]);
+
+    return 0;
 }
+
