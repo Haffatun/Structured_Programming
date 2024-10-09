@@ -1,31 +1,33 @@
+//Given a number N and an array A of N numbers.
+//Print the numbers in even indices in a reversed order.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-int spaceOdd(int arr[], int x)
+
+//Print function
+void PrintEvenIndex(int arr[], int n)
 {
-    if(x==0)
-    {
-        cout << arr[x];
-        return 0;
-    }
-    if(x%2==0)
-        cout << arr[x] << " ";
-    spaceOdd(arr, x-1);
+    //Base case
+    if(n<0) return;
+
+    if(n%2==1) return PrintEvenIndex(arr, n-1);
+
+    cout << arr[n] << " ";
+    return PrintEvenIndex(arr, n-2);
+
 }
- 
-lets_start
+int main()
 {
+    //Take an input n
     int n; cin >> n;
+    //Take n number of array input
     int arr[n];
     for(int i=0; i<n; ++i)
         cin >> arr[i];
-    spaceOdd(arr, n-1);
-    okeyBye
+
+    //Call the function
+    PrintEvenIndex(arr, n-1);
+
+    return 0;
 }
+
