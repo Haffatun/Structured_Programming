@@ -1,31 +1,26 @@
+//Given a number N and an array A of N numbers.
+//Print the summation of the array elements.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-ll sum_n(int arr[], int s, int n, ll sum)
+
+int SumofArray(int arr[], int n)
 {
-    if(n==s)
-    {
-        cout << sum << endl;
-        return 0;
-    }
-    sum+=arr[n];
-    sum_n(arr, s, n+1, sum);
+    //Base case
+    if(n<0) return 0;
+
+    return arr[n]+SumofArray(arr, n-1);
 }
- 
-lets_start
+int main()
 {
+    //Take an integer
     int n; cin >> n;
+    //Take an array
     int arr[n];
     for(int i=0; i<n; ++i)
         cin >> arr[i];
-    sum_n(arr, n, 0, 0);
- 
-    okeyBye
+    //Call the function and print the summation of the array elements
+    cout << SumofArray(arr, n-1);
+
+    return 0;
 }
