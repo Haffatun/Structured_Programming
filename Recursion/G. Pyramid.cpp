@@ -1,31 +1,30 @@
+//Given a number N and an array A of N numbers.
+//Print a pyramid of height N.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-ll pyramid(int d, int r, int k)
+
+//Print function
+void PrintPyramid(int n, int m)
 {
-    if(d<=k)
-    {
-        int a=r, b=2*d-1;
-        while(a--)
-            cout << " ";
-        while(b--)
-            cout << "*";
-        cout << endl;
-        pyramid(d+1, r-1, k);
-    }
+    //Base case
+    if(n<0) return;
+
+    PrintPyramid(n-2, m+1);
+    while(m--)
+        cout << " ";
+    while(n--)
+        cout << "*";
+    cout << endl;
 }
- 
-lets_start
+int main()
 {
+    //Take an input n
     int n; cin >> n;
-    pyramid(1, n-1, n);
- 
-    okeyBye
+
+    //Call the function
+    PrintPyramid((n*2)-1 , 0);
+
+    return 0;
 }
+
