@@ -1,4 +1,5 @@
-//Given a number N. Print "I love Recursion" N times.
+//Given a number N. 
+//Print "I love Recursion" N times.
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,7 +15,7 @@ void PrintRecursion(int n)
 }
 int main()
 {
-    //Take a input n
+    //Take an input n
     int n; cin >> n;
     //Call the function
     PrintRecursion(n);
