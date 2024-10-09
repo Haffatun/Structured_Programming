@@ -1,31 +1,27 @@
+//Given two numbers N and M, and an array A of N numbers.
+//Calculate the sum of the last M numbers.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-ll suffix_sum(int arr[], int n, int m, int r, ll sum)
+
+int Sum(int arr[], int n, int m)
 {
-    if(r-n==m)
-        return sum;
-    if(r-n<m)
-    {
-        sum+=arr[n];
-        return suffix_sum(arr, n-1, m, r, sum);
-    }
+    //Base case
+    if(m==0) return 0;
+
+    return arr[n]+Sum(arr, n-1, m-1);
 }
- 
-lets_start
+int main()
 {
+    //Take two numbers
     int n, m; cin >> n >> m;
+    //Take an array
     int arr[n];
     for(int i=0; i<n; ++i)
         cin >> arr[i];
-    ll ans=suffix_sum(arr, n-1, m, n-1, 0);
-    cout << ans << endl;
-    okeyBye
+    //Call the function and print the sum of the last M numbers
+    cout << Sum(arr, n-1, m) << endl;
+
+    return 0;
 }
+
