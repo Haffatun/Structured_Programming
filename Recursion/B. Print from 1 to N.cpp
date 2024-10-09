@@ -1,24 +1,25 @@
+//Given a number N.
+//Print numbers from 1 to N in separate lines.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-void one_to_n(int k)
+
+//Print function
+void Print1toN(int n)
 {
-    if(k==0)
-        return;
-    one_to_n(k-1);
-    cout << k << endl;
+    //Base case
+    if(n==0) return;
+    //Recursive call statement
+    Print1toN(n-1);
+    cout << n << endl;
 }
-lets_start
+int main()
 {
-    int n;
-    cin >> n;
-    one_to_n(n);
-    okeyBye
+    //Take an input n
+    int n; cin >> n;
+    //Call the function
+    Print1toN(n);
+
+    return 0;
 }
+
