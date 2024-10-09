@@ -1,23 +1,25 @@
+//Given a number N.
+//Print factorial of N.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-ll factorial(ll x)
+
+//Find factorial
+long long factorial(int n)
 {
-    if(x>1)
-        return x*factorial(x-1);
-    return x;
+    //Base case
+    if(n==0 || n==1) return 1;
+
+    return n*factorial(n-1);
 }
- 
-lets_start
+int main()
 {
-    ll n; cin >> n;
-    cout << factorial(n) << endl;
-    okeyBye
+    //Take an integer
+    int n; cin >> n;
+
+    //print the factorial of n
+    cout << factorial(n);
+
+    return 0;
 }
+
