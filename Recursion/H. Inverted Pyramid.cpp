@@ -1,31 +1,32 @@
+//Given a number N and an array A of N numbers.
+//Print an inverted pyramid of height N.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-ll i_pyramid(int d, int r)
+
+//Print function
+void PrintInvertedPyramid(int n, int m)
 {
-    if(d>0)
-    {
-        int a=2*d-1, b=r;
-        while(b--)
-            cout << " ";
-        while(a--)
-            cout << "*";
-        cout << endl;
-        i_pyramid(d-1, r+1);
-    }
+    //Base case
+    if(n<0) return;
+ 
+    int a=m, b=n;
+    while(a--)
+        cout << " ";
+    while(b--)
+        cout << "*";
+    cout << endl;
+
+    PrintInvertedPyramid(n-2, m+1);
 }
- 
-lets_start
+int main()
 {
+    //Take an input n
     int n; cin >> n;
-    i_pyramid(n, 0);
- 
-    okeyBye
+
+    //Call the function
+    PrintInvertedPyramid((n*2)-1 , 0);
+
+    return 0;
 }
+
