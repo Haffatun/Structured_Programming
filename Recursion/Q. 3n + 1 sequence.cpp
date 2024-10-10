@@ -1,31 +1,26 @@
+//Given a number n, you should print the length of the 3n+1 sequence starting with n.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-ll pr(int n, ll x)
+
+//Function for 3n+1 sequence
+long long F(long long n, long long k)
 {
-    if(n==1)
-        return x+1;
-    else if(n%2==1)
-    {
-        return (pr(3*n+1, x+1));
-    }
-    else if(n%2==0)
-    {
-        return (pr(n/2, x+1));
-    }
+    //Base case
+    if(n==1) return k;
+
+    //Recursive call
+    if(n%2==0) F(n/2, k+1);
+    else F((n*3)+1, k+1);
 }
- 
-lets_start
+int main()
 {
-    int n; cin >> n;
-    ll ans=pr(n, 0);
-    cout << ans << endl;
-    okeyBye
+    //Take a number
+    long long n; cin >> n;
+
+    //Call the function and print the return value
+    cout << F(n, 1) << endl;
+
+    return 0;
 }
+
