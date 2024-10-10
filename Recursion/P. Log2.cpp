@@ -1,24 +1,26 @@
+//Given a number N.
+//Print log2(N).
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
-int lg(ll n)
+
+//2 based Logarithmic function
+long long log2(long long n, long long k)
 {
-    if(n==1) okeyBye
-    int k =1;
-    k+=lg(n/2);
-    return k;
+    //Base case
+    if(n==1) return 0;
+
+    //Recursive call
+    return k+log2(n/2, k);
 }
- 
-lets_start
+int main()
 {
-    ll n; cin >> n;
-    cout << lg(n) << endl;
- 
-    okeyBye
+    //Take a number
+    long long n; cin >> n;
+
+    //Call the function and print the return value
+    cout << log2(n, 1) << endl;
+
+    return 0;
 }
+
