@@ -1,31 +1,29 @@
+//Given a number N and an array A of N numbers.
+//Calculate the average of these numbers.
+
 #include <bits/stdc++.h>
 using namespace std;
- 
-#define lets_start    int main()
-#define okeyBye       return 0;
-#define ll            long long
-#define p             printf
-#define usi           unsigned int
-#define vi            vector<int>
- 
-void ar_avg(int arr[], int i, int f, double sum)
+
+//Finding Array average
+double averageN(int arr[], int n, int sum, int k)
 {
-    if(i==f)
-        p("%.6lf\n", sum/(f*1.000000));
-    else if(i<f)
-    {
-        sum+=arr[i];
-    ar_avg(arr, i+1, f, sum);
-    }
- 
+    //Base case
+    if(n<0) return sum/k;
+
+    //Recursive call
+    return averageN(arr, n-1, sum+arr[n], k);
 }
-lets_start
+int main()
 {
+    //Take a number
     int n; cin >> n;
+    //Take an array
     int arr[n];
     for(int i=0; i<n; ++i)
         cin >> arr[i];
-    ar_avg(arr, 0, n, 0.000000);
- 
-    okeyBye
+    //Call the function and print the return value
+    cout << setprecision(6) << fixed << averageN(arr, n-1, 0, n) << endl;
+
+    return 0;
 }
+
